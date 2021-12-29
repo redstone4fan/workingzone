@@ -2,7 +2,7 @@
 #* - This is the Root Module 
 #* 
 #* - Contains:
-#* - (1) Terraform block, call for "azurerm" provider
+#* - (1) Terraform block, call for "azurerm" provider; define the storage to save terraform state
 #* - (2) Provider block - "AzureRM": define version and connection details
 #* - (3) provider blcok - "AzureAD": define version and connection details
 #* - (4) Modules - define the name and specify the path
@@ -27,7 +27,14 @@ terraform {
             source  =   "hashicorp/azurerm"
         }
     }
+  backend "azurerm" {
+    resource_group_name  = "RG-Fan-Common-Canada"
+    storage_account_name = "fanterraformstatus"
+    container_name       = "terraform-status"
+    key                  = "dev.terraform.tfstate"
+  }
 }
+
 
 # Provider Block
 provider "azurerm" {

@@ -36,7 +36,7 @@ provider "azuread" {
 }
 
 
-module "windows-server" {
+module "virtualnetwork" {
      source  =   "./virtualnetwork"
  }
 

@@ -28,7 +28,7 @@ pipeline{
                         { 
                         sh """           
                             echo "Initializing Terraform"
-                            terraform init -backend-config="Azure-SAS-token=$ARM_ACCESS_KEY"
+                            terraform init -backend-config="access_key=$ARM_ACCESS_KEY"
                             """
                         }
                     }

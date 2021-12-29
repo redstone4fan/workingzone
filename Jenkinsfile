@@ -21,7 +21,7 @@ pipeline{
                             clientSecretVariable: 'ARM_CLIENT_SECRET',
                             tenantIdVariable: 'ARM_TENANT_ID'
                             ), 
-                        string(credentialsId: 'Azure-SAS-token', variable: 'ARM_ACCESS_KEY')
+                        string(credentialsId: 'terraform.state.blob', variable: 'ARM_ACCESS_KEY')
                         ]
                         )
 
@@ -44,7 +44,7 @@ pipeline{
                     clientIdVariable: 'ARM_CLIENT_ID',
                     clientSecretVariable: 'ARM_CLIENT_SECRET',
                     tenantIdVariable: 'ARM_TENANT_ID'
-                ), string(credentialsId: 'Azure-SAS-token', variable: 'ARM_ACCESS_KEY')]) {
+                ), string(credentialsId: 'terraform.state.blob', variable: 'ARM_ACCESS_KEY')]) {
                         
                         sh """                               
                         terraform validate
@@ -63,7 +63,7 @@ pipeline{
                     clientIdVariable: 'ARM_CLIENT_ID',
                     clientSecretVariable: 'ARM_CLIENT_SECRET',
                     tenantIdVariable: 'ARM_TENANT_ID'
-                ), string(credentialsId: 'Azure-SAS-token', variable: 'ARM_ACCESS_KEY')]) {
+                ), string(credentialsId: 'terraform.state.blob', variable: 'ARM_ACCESS_KEY')]) {
                         
                         sh """     
                         echo "Creating Terraform Plan"
@@ -92,7 +92,7 @@ pipeline{
                     clientIdVariable: 'ARM_CLIENT_ID',
                     clientSecretVariable: 'ARM_CLIENT_SECRET',
                     tenantIdVariable: 'ARM_TENANT_ID'
-                ), string(credentialsId: 'Azure-SAS-token', variable: 'ARM_ACCESS_KEY')]) {
+                ), string(credentialsId: 'terraform.state.blob', variable: 'ARM_ACCESS_KEY')]) {
 
                         sh """
                         echo "Applying the plan"

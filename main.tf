@@ -27,6 +27,7 @@ terraform {
             source  =   "hashicorp/azurerm"
         }
     }
+    backend "local" {}
 }
 
 

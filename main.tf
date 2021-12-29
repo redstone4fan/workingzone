@@ -27,12 +27,6 @@ terraform {
             source  =   "hashicorp/azurerm"
         }
     }
-  backend "azurerm" {
-    resource_group_name  = "RG-Fan-Common-Canada"
-    storage_account_name = "fanterraformstatus"
-    container_name       = "terraform-status"
-    key                  = "dev.terraform.tfstate"
-  }
 }
 
 

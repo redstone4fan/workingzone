@@ -1,16 +1,22 @@
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
-#*  Create a Virtual Network in Azure - Variables    *#
+#* - This file contains the variables for creating RG, VNET, and subnet
+#* - The variables are used in the "main.tf" file in the same sub-folder
+#* 
+#* - List of the variables:
+#*   -- "resource-group-name"
+#*   -- "location"
+#*   -- "virtual_network_name"
+#*   -- "vnet_address_range"
+#*   -- "subnet_name" 
+#*   -- "subnet_address_range"
+#*   
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
-
-
-# Resource Group Variables
 
 variable "resource_group_name" {
     description =   "Name of the resource group"
     type        =   string
     default     =   "Jenkins-RG"
 }
-
 variable "location" {
     description =   "Location of the resource group"
     type        =   string
@@ -22,7 +28,6 @@ variable "virtual_network_name" {
     type        =   string
     default     =   "Jenkins-Vnet"
 }
-
 variable "vnet_address_range" {
     description =   "IP Range of the virtual network"
     type        =   string
@@ -34,7 +39,6 @@ variable "subnet_name" {
     type        =   string
     default     =   "Webserver-Subnet"
 }
-
 variable "subnet_address_range" {
     description =   "IP Range of the virtual network"
     type        =   string

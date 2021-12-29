@@ -1,5 +1,9 @@
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
-#*  Create a Virtual Network in Azure - Outputs      *#
+#* - Define Output parameters for RG, VNET and subnet
+#* - 6 output value, which are the same as variables
+#* - The output parameters will be saved in the terraform state file
+#* - The resources are created in the "main.tf" file
+#* 
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
 
 output "resource-group-name" {

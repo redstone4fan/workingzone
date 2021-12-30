@@ -1,24 +1,20 @@
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
 #*     What is in this module?
-#*  1) Create a RG, with 2*tags - name, location are variables
+#*  1) Reference a RG
 #*  2) Create a VNET in the defined RG, with 2*tags - name, address range are variables
 #*  3) Create a subnet within the defined VNET, with 2*tags - name, address range are variables
 #*  
 #*  Note: 
-#* - There are 6 variables used in this main.tf file
+#* - There are 6 variables used in this main.tf file; 2 of them are data segment, which are from RG module
 #* - Variables are defined in the file "variables.tf", under the same sub-folder
 #*
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
 #
 # - Create a Resource Group
 #
-resource "azurerm_resource_group" "rg" {
+data "azurerm_resource_group" "rg" {
     name        =   var.resource_group_name
     location    =   var.location
-    tags        =   {
-        "author"        =   "Redstone"
-        "deployed_with" =   "Terraform"
-    }
 }
 
 #

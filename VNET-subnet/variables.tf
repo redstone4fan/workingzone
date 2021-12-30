@@ -1,27 +1,14 @@
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
-#* - This file contains the variables for creating RG, VNET, and subnet
+#* - This file contains the variables for creating VNET, and subnet
 #* - The variables are used in the "main.tf" file in the same sub-folder
 #* 
 #* - List of the variables:
-#*   -- "resource-group-name"
-#*   -- "location"
 #*   -- "virtual_network_name"
 #*   -- "vnet_address_range"
 #*   -- "subnet_name" 
 #*   -- "subnet_address_range"
 #*   
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
-
-variable "resource_group_name" {
-    description =   "Name of the resource group"
-    type        =   string
-    default     =   "Jenkins-RG"
-}
-variable "location" {
-    description =   "Location of the resource group"
-    type        =   string
-    default     =   "East US"
-}
 
 variable "virtual_network_name" {
     description =   "Name of the virtual network"

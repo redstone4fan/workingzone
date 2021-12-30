@@ -54,8 +54,11 @@ provider "azuread" {
 }
 
 
-module "rg-vnet-subnet" {
-     source  =   "./RG-VNET-subnet"
+module "resoure-group" {
+     source  =   "./RG"
+ }
+module "vnet-subnet" {
+     source  =   "./VNET-subnet"
  }
 
 // module "winvm" {

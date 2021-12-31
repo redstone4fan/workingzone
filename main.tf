@@ -54,21 +54,21 @@ provider "azuread" {
 }
 
 
-module "resoure-group" {
-     source  =   "./RG"
-     
-     resource_group_name = "Jenkins-terraform-RG"
-     location = "East US"
+resource "azurerm_resource_group" "rg" {
+    name     = "fan-cicd-RG"
+    location = "East US"
  }
-module "vnet-subnet" {
-     source  =   "./VNET-subnet"
 
-     resource_group_name = "Jenkins-terraform-RG"
-     location = "East US"
-     virtual_network_name = "terraform-vnet"
-     vnet_address_range = "10.10.0.0/16"
-     subnet_address_range =  "10.10.10.0/24"
-     subnet_name = "gw-subnet"
+module "vnet-new" {
+  source  =   "./vnet-new"
+
+  # source              = "Azure/vnet/azurerm"
+  resource_group_name = azurerm_resource_group.rg.name
+  address_space       = ["10.0.0.0/16"]
+  subnet_prefixes     = ["10.0.1.0/24","10.0.2.0/24","10.0.3.0/24"]
+  subnet_names        = ["subnet1","subnet2","subnet3"]
+
+  depends_on = [azurerm_resource_group.rg]
  }
 
 // module "winvm" {

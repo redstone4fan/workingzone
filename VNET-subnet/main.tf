@@ -10,7 +10,7 @@
 #*
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
 #
-# - Create a Resource Group
+# - Call for data of the existing Resource Group
 #
 data "azurerm_resource_group" "rg" {
     name        =   var.resource_group_name
@@ -21,9 +21,9 @@ data "azurerm_resource_group" "rg" {
 # - Create a Virtual Network
 #
 resource "azurerm_virtual_network" "vnet" {
-  resource_group_name   =   azurerm_resource_group.rg.name
+  resource_group_name   =   data.azurerm_resource_group.rg.name
   name                  =   var.virtual_network_name
-  location              =   azurerm_resource_group.rg.location
+  location              =   data.azurerm_resource_group.rg.location
   address_space         =   [var.vnet_address_range]
    tags                 =   {
         "author"        =   "Redstone"
@@ -36,7 +36,7 @@ resource "azurerm_virtual_network" "vnet" {
 #
 resource "azurerm_subnet" "sn" {
    name                 =   var.subnet_name
-   resource_group_name  =   azurerm_resource_group.rg.name
-   virtual_network_name =   azurerm_virtual_network.vnet.name
+   resource_group_name  =   data.azurerm_resource_group.rg.name
+   virtual_network_name =   data.azurerm_virtual_network.vnet.name
    address_prefixes     =   [var.subnet_address_range]
 }

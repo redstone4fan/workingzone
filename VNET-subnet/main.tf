@@ -12,8 +12,7 @@
 #
 # - Call for data of the existing Resource Group
 #
-data "azurerm_resource_group" "rg" {
-}
+
 
 #
 # - Create a Virtual Network

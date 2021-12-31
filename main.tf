@@ -56,11 +56,15 @@ provider "azuread" {
 
 module "resoure-group" {
      source  =   "./RG"
+     
      resource_group_name = "Jenkins-terraform-RG"
      location = "East US"
  }
 module "vnet-subnet" {
      source  =   "./VNET-subnet"
+     
+     resource_group_name = "Jenkins-terraform-RG"
+     location = "East US"
      subnet_address_range =  "10.10.10.0/24"
      subnet_name = "gw-subnet"
  }

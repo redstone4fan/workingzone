@@ -31,7 +31,7 @@ terraform {
         resource_group_name  = "fanterraformstatus"
         storage_account_name = "fanterraformstatus"
         container_name       = "terraform-status"
-        key                  = "jenkins.terraform.tfstate"
+        key                  = "tfstate.module.test"
      }
 }
 

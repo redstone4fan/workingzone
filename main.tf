@@ -62,9 +62,11 @@ module "resoure-group" {
  }
 module "vnet-subnet" {
      source  =   "./VNET-subnet"
-     
+
      resource_group_name = "Jenkins-terraform-RG"
      location = "East US"
+     virtual_network_name = "terraform-vnet"
+     vnet_address_range = "10.10.0.0/16"
      subnet_address_range =  "10.10.10.0/24"
      subnet_name = "gw-subnet"
  }

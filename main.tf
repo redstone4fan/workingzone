@@ -59,7 +59,6 @@ module "resoure-group" {
  }
 module "vnet-subnet" {
      source  =   "./VNET-subnet"
-     depends_on = [azurerm_resource_group.rg]
  }
 
 // module "winvm" {
